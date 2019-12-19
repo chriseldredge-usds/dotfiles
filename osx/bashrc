@@ -1,4 +1,10 @@
-alias readlink=greadlink
+if [ -x $HOME/bin/greadlink ]; then
+	alias readlink=~/bin/greadlink
+elif command -v greadlink >/dev/null 2>&1; then
+	alias readlink=greadlink
+else
+	echo I NEED A \`greadlink\`
+fi
 
 source $(dirname $(readlink -f $BASH_SOURCE))/../common/bashrc
 
