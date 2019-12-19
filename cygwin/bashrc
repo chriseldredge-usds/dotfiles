@@ -45,3 +45,8 @@ alias start=open
 alias gitex='/cygdrive/c/Program\ Files\ \(x86\)/GitExtensions/gitex.cmd'
 alias sleepnow='rundll32.exe powrprof.dll,SetSuspendState Standby'
 alias npm=npm.cmd
+
+custom=$(dirname $(readlink -f $BASH_SOURCE))/../local/bashrc
+if [ -f $custom ]; then
+	source $custom
+fi
